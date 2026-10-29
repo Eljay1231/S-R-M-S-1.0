@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Students | Student Records</title>
+  <link rel="stylesheet" href="../assets/css/main.css"><link rel="stylesheet" href="../assets/css/layout.css"><link rel="stylesheet" href="../assets/css/components.css"><link rel="stylesheet" href="../assets/css/forms.css"><link rel="stylesheet" href="../assets/css/tables.css"><link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="main-nav" aria-label="Main navigation">
+      <p class="brand"><a href="dashboard.html">Student Records</a></p>
+      <nav><ul class="nav-list">
+        <li><a class="nav-link" href="dashboard.html">Dashboard</a></li><li><a class="nav-link" href="students.html" aria-current="page">Students</a></li><li><a class="nav-link" href="student-form.html">Add Student</a></li><li><a class="nav-link" href="courses.html">Courses</a></li><li><a class="nav-link" href="reports.html">Reports</a></li>
+      </ul></nav>
+      <div class="sidebar-footer"><button class="button button-secondary" type="button" data-demo-logout>Log out (demo)</button></div>
+    </aside>
+    <div class="workspace">
+      <header class="topbar"><button class="button button-secondary menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button><h1>Students</h1><span class="topbar-user">Administrator · Demo</span></header>
+      <main class="main-content">
+        <div class="page-heading"><div><h2>Student records</h2><p>Search, filter, and maintain sample student records.</p></div><button id="add-student" class="button" type="button">Add student</button></div>
+        <div class="notice" role="note">Changes made here are temporary and reset when this page reloads.</div>
+        <div id="student-feedback" class="form-message" role="status" aria-live="polite" hidden></div>
+        <section class="panel" aria-label="Student records">
+          <div class="filter-bar">
+            <div class="field"><label for="student-search">Search number or name</label><input id="student-search" type="search" autocomplete="off"></div>
+            <div class="field"><label for="course-filter">Course</label><select id="course-filter"><option value="">All courses</option></select></div>
+            <div class="field"><label for="year-filter">Year level</label><select id="year-filter"><option value="">All year levels</option><option value="1">Year 1</option><option value="2">Year 2</option><option value="3">Year 3</option><option value="4">Year 4</option></select></div>
+            <button id="clear-filters" class="button button-secondary" type="button">Clear filters</button>
+          </div>
+          <p id="student-result-count" class="result-count" aria-live="polite"></p>
+          <div id="student-table"></div>
+          <div class="panel-body"><button id="previous-page" class="button button-secondary button-small" type="button">Previous</button> <span id="page-indicator" aria-live="polite"></span> <button id="next-page" class="button button-secondary button-small" type="button">Next</button></div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <dialog id="student-dialog" aria-labelledby="student-dialog-title">
+    <form id="student-record-form" novalidate>
+      <div class="dialog-header"><h2 id="student-dialog-title">Add student</h2><button class="button button-secondary button-small" type="button" data-close-dialog>Close</button></div>
+      <div class="dialog-body">
+        <div id="dialog-message" class="form-message" role="status" aria-live="polite" hidden></div>
+        <div class="form-grid">
+          <div class="field"><label for="studentNumber">Student number *</label><input id="studentNumber" name="studentNumber" required maxlength="30"><span id="studentNumber-error" class="field-error"></span></div>
+          <div class="field"><label for="firstName">First name *</label><input id="firstName" name="firstName" required maxlength="60"><span id="firstName-error" class="field-error"></span></div>
+          <div class="field"><label for="middleName">Middle name</label><input id="middleName" name="middleName" maxlength="60"><span id="middleName-error" class="field-error"></span></div>
+          <div class="field"><label for="lastName">Last name *</label><input id="lastName" name="lastName" required maxlength="60"><span id="lastName-error" class="field-error"></span></div>
+          <div class="field"><label for="gender">Gender *</label><select id="gender" name="gender" required><option value="">Select gender</option><option>Female</option><option>Male</option><option>Non-binary</option><option>Prefer not to say</option></select><span id="gender-error" class="field-error"></span></div>
+          <div class="field"><label for="dateOfBirth">Date of birth *</label><input id="dateOfBirth" name="dateOfBirth" type="date" required><span id="dateOfBirth-error" class="field-error"></span></div>
+          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" maxlength="120"><span id="email-error" class="field-error"></span></div>
+          <div class="field"><label for="contactNumber">Contact number</label><input id="contactNumber" name="contactNumber" maxlength="30"><span id="contactNumber-error" class="field-error"></span></div>
+          <div class="field field-full"><label for="address">Address *</label><textarea id="address" name="address" required maxlength="240"></textarea><span id="address-error" class="field-error"></span></div>
+          <div class="field"><label for="courseId">Course *</label><select id="courseId" name="courseId" required><option value="">Select course</option></select><span id="courseId-error" class="field-error"></span></div>
+          <div class="field"><label for="yearLevel">Year level *</label><select id="yearLevel" name="yearLevel" required><option value="">Select year</option><option value="1">Year 1</option><option value="2">Year 2</option><option value="3">Year 3</option><option value="4">Year 4</option></select><span id="yearLevel-error" class="field-error"></span></div>
+        </div>
+      </div>
+      <div class="dialog-footer"><button class="button button-secondary" type="button" data-close-dialog>Cancel</button><button class="button" type="submit">Save student</button></div>
+    </form>
+  </dialog>
+  <dialog id="delete-dialog" aria-labelledby="delete-title">
+    <div class="dialog-header"><h2 id="delete-title">Delete student?</h2></div>
+    <div class="dialog-body"><p id="delete-description"></p><p>This deletion only affects the current demonstration page.</p></div>
+    <div class="dialog-footer"><button id="cancel-delete" class="button button-secondary" type="button">Cancel</button><button id="confirm-delete" class="button button-delete" type="button">Delete student</button></div>
+  </dialog>
+  <script type="module" src="../assets/js/main.js"></script><script type="module" src="../assets/js/students.js"></script>
+</body>
+</html>

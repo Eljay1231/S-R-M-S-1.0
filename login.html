@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Frontend demonstration login for the Student Record Management System.">
+  <title>Admin Login | Student Records</title>
+  <link rel="stylesheet" href="assets/css/main.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/components.css">
+  <link rel="stylesheet" href="assets/css/forms.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+</head>
+<body class="login-page">
+  <main class="panel login-panel">
+    <h1>Student Records</h1>
+    <p>Administrator sign in</p>
+    <div id="login-message" class="form-message" role="status" aria-live="polite" hidden></div>
+    <form id="login-form" novalidate>
+      <div class="section-stack">
+        <div class="field">
+          <label for="username">Username</label>
+          <input id="username" name="username" autocomplete="username" required maxlength="80">
+          <span class="field-error" id="username-error"></span>
+        </div>
+        <div class="field">
+          <label for="password">Password</label>
+          <div class="password-control">
+            <input id="password" name="password" type="password" autocomplete="current-password" required>
+            <button id="password-toggle" class="button button-secondary" type="button" aria-pressed="false">Show</button>
+          </div>
+          <span class="field-error" id="password-error"></span>
+        </div>
+        <button class="button" type="submit">Continue to demonstration</button>
+      </div>
+    </form>
+    <p class="login-demo-note">Frontend demonstration only. Any non-empty username and password will open the prototype. This is not authentication and provides no security.</p>
+  </main>
+  <script type="module" src="assets/js/login.js"></script>
+</body>
+</html>
