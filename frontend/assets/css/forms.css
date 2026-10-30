@@ -1,0 +1,27 @@
+.form-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: var(--form-field-gap); }
+.field { display: grid; align-content: start; gap: var(--space-2); }
+.field-full { grid-column: 1 / -1; }
+.field label { font-weight: 600; }
+.field input, .field select, .field textarea {
+  width: 100%;
+  min-height: 42px;
+  padding: 9px 11px;
+  border: 1px solid var(--color-border);
+  border-radius: 8px;
+  background: var(--color-surface);
+  color: var(--color-text-primary);
+  transition: border-color 140ms ease, box-shadow 140ms ease;
+}
+.field input:hover, .field select:hover, .field textarea:hover { border-color: var(--color-gray); }
+.field input:focus, .field select:focus, .field textarea:focus { border-color: #bdbdbd; outline: 0; box-shadow: 0 0 0 3px rgb(255 255 255 / 10%); }
+.field textarea { min-height: 96px; resize: vertical; }
+.field small, .field-error { color: var(--color-text-secondary); font-size: 13px; }
+.field-error { color: var(--color-error-text); }
+.field [aria-invalid="true"], .field [aria-invalid="true"]:hover, .field [aria-invalid="true"]:focus { border-color: var(--color-delete); }
+.form-actions { display: flex; flex-wrap: wrap; gap: var(--space-2); margin-top: var(--space-6); }
+.password-control { display: flex; gap: var(--space-2); }
+.password-control input { flex: 1; min-width: 0; }
+.details-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); margin: 0; }
+.detail-item { padding: var(--space-4); border-bottom: 1px solid var(--color-border); }
+.detail-item dt { color: var(--color-text-secondary); font-size: 14px; }
+.detail-item dd { margin: var(--space-1) 0 0; overflow-wrap: anywhere; }

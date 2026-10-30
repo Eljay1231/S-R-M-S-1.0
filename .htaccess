@@ -1,0 +1,5 @@
+Options -Indexes
+RewriteEngine On
+RewriteRule "(^|/)\.git(/|$)" - [F,L]
+RewriteRule ^frontend/admin/(dashboard|students|student-form|student-details|courses|reports)\.html$ backend/public/admin-page.php?page=$1.html [QSA,NC,L]
+RewriteRule ^$ /S-R-M-S/frontend/login.html [R=302,L]

@@ -1,0 +1,6 @@
+.dashboard-grid { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(280px, 1fr); gap: var(--section-gap); }
+.quick-actions { display: flex; flex-wrap: wrap; gap: var(--space-2); }
+.dashboard-section { min-width: 0; }
+.enrollment-table td:last-child { width: 140px; }
+.count-bar { width: 100%; height: 8px; overflow: hidden; border: 0; border-radius: 999px; background: #3a3a3a; }
+.count-bar span { display: block; height: 100%; min-width: 0; border-radius: inherit; background: var(--color-primary-action); }

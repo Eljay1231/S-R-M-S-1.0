@@ -1,5 +1,7 @@
 # Frontend test cases and verification record
 
+> Historical note: the results below describe the in-memory frontend prototype before backend integration. They do not verify the current Fetch/PHP implementation. Retest through Apache/XAMPP; backend test status is tracked in [backend-test-cases.md](backend-test-cases.md).
+
 The application has no automated-test dependency. Use these manual acceptance checks in a browser served over HTTP (ES modules do not reliably run from `file://`). Record only outcomes actually verified.
 
 ## Test cases

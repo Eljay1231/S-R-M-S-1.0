@@ -1,0 +1,10 @@
+<?php
+
+function api_csrf_token(): string
+{
+    api_start_session();
+    if (!isset($_SESSION['csrf_token']) || !is_string($_SESSION['csrf_token'])) {
+        $_SESSION['csrf_token'] = bin2hex(random_bytes(32));
+    }
+    return $_SESSION['csrf_token'];
+}

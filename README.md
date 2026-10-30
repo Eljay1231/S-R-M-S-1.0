@@ -1,55 +1,69 @@
-# Student Record Management System — Frontend Prototype
+# Student Record Management System
 
-A responsive, admin-only frontend prototype for managing fictional student and course records. This academic project uses browser-native HTML, CSS, and JavaScript ES modules. It does not contain a PHP backend or database.
+An admin-only student record system using PHP 8+, PDO, MySQL/MariaDB, HTML, CSS, and vanilla JavaScript modules. The existing page layout is retained; records and authentication are now provided by same-origin PHP APIs.
 
-## Technology
+## Features
 
-- HTML5, CSS3, and vanilla JavaScript (ES modules)
-- No frontend framework or package dependencies
-- Designed for future PHP 8+, PDO, and MySQL/MariaDB integration
+- Single administrator account with PHP password hashing and session authentication
+- CSRF-protected student and course changes
+- Student search, course/year filters, sorting, and server-side pagination
+- Course activation/deactivation with enrollment counts
+- Database-driven dashboard and paginated reports
+- Server-side validation, prepared statements, and consistent JSON responses
 
-## Run the prototype
+## Requirements
 
-Serve this folder with a static web server so the browser can load JavaScript modules. For example, with XAMPP installed, place the project under `htdocs` and open `http://localhost/<project-folder>/login.html`. Any basic static HTTP server also works. No build step or npm installation is required.
+- XAMPP with PHP 8.0 or later, Apache, and MySQL/MariaDB
+- PHP extensions `pdo_mysql` and `mbstring`
+- Apache `mod_rewrite` enabled and `.htaccess` overrides allowed for the project
+- PHP CLI for creating the initial administrator; this workspace has PHP 8.5.12 installed under `%LOCALAPPDATA%\Programs\PHP-8.5.12`
 
-The login is a clearly labeled demonstration: any non-empty username and password opens the dashboard. It does not authenticate users or provide security.
+No Composer dependencies are required; the backend uses native PHP/PDO.
 
-## Pages and features
+## Run locally
 
-- `login.html`: demonstration login and password visibility toggle
-- `admin/dashboard.html`: dynamically calculated dashboard metrics, recent registrations, and enrollment counts
-- `admin/students.html`: student search, course/year filters, pagination, in-page add/edit dialogs, details links, and confirmed deletion
-- `admin/student-form.html`: standalone student add/edit form with validation
-- `admin/student-details.html`: student details with missing-record handling
-- `admin/courses.html`: course search, add/edit, enrollment counts, status activation/deactivation, and student links
-- `admin/reports.html`: complete student list, course/year reports, enrollment summary, filters, and print layout
+Follow [docs/setup-guide.md](docs/setup-guide.md) for the complete Windows/XAMPP steps. In brief:
 
-Sample records are centralized in `assets/js/data.js`; reusable validation and rendering helpers live under `assets/js/`.
+1. Copy the project folder into `C:\xampp\htdocs\S-R-M-S`.
+2. Start Apache and MySQL in the XAMPP Control Panel.
+3. Import `backend/database/schema.sql`, then `backend/database/seed.sql`, through phpMyAdmin.
+4. Copy `backend/app/config/database.example.php` to `backend/app/config/database.local.php` and set your local MySQL credentials. The local file is ignored by Git and denied by Apache.
+5. To set credentials by editing local PHP config strings, copy `backend/app/config/admin.example.php` to `backend/app/config/admin.local.php`, replace its username, email, and password, then run `php backend\bin\create-admin.php` from the project root (or `php .\bin\create-admin.php` from `backend`). If `php` is not recognized, use `C:\xampp\php\php.exe .\backend\bin\create-admin.php` from the project root. The local config is ignored by Git. The command creates the sole admin if none exists or updates it if one exists.
+6. Open `http://localhost/S-R-M-S/`; the project redirects to `frontend/login.html`.
 
-## Prototype limitations
+Do not open the HTML files through `file://`; the application needs Apache/PHP and same-origin session cookies.
 
-- Student and course data is fictional and exists only in JavaScript memory.
-- Add/edit/delete/status operations are temporary. Reloading or navigating to another HTML page restores the original sample data.
-- No localStorage/sessionStorage, database, API, backend, real authentication, or access control is implemented.
-- Client-side validation improves usability but is not a security boundary.
-- A future backend must validate and authorize every operation on the server.
+## Database and API
 
-## Folder structure
+- Database name: `student_db`
+- SQL schema and fictional sample records: [backend/database/](backend/database)
+- Frontend pages and assets: [frontend/](frontend)
+- PHP APIs and application logic: [backend/](backend)
+- Endpoint details and response shapes: [docs/api-documentation.md](docs/api-documentation.md)
+- Security design: [docs/security.md](docs/security.md)
+- Architecture: [docs/backend-architecture.md](docs/backend-architecture.md)
+
+## Project layout
 
 ```text
-login.html
-admin/
-  dashboard.html
-  students.html
-  student-form.html
-  student-details.html
-  courses.html
-  reports.html
-assets/
-  css/
-  js/
-docs/
-tests/
+frontend/
+  login.html
+  admin/       Admin-only pages
+  assets/      CSS styles and JavaScript modules
+backend/
+  api/         Authentication, student, course, dashboard, and report endpoints
+  app/         PDO configuration, shared helpers, and session/CSRF middleware
+  bin/         CLI-only administrator setup
+  database/    Schema and optional fictional seed data
+  public/      Session-gated admin page handler
+docs/          Setup, API, architecture, database, and security guides
+tests/         Verification records and test cases
 ```
 
-See [docs/frontend-design.md](docs/frontend-design.md), [docs/backend-integration-plan.md](docs/backend-integration-plan.md), and [tests/frontend-test-cases.md](tests/frontend-test-cases.md).
+The seed file contains fictional demonstration courses and students; remove those records if they are not wanted. The schema requires students to have a course, and courses with student records cannot be deleted; deactivate them instead.
+
+## Known limitations
+
+- The PHP CLI and required extensions are installed and linted locally, but the project has not been run against Apache or MySQL; confirm integration tests using XAMPP as described in [docs/setup-guide.md](docs/setup-guide.md).
+- The CLI command manages only one administrator and is not exposed as a web endpoint. Keep the local plaintext-password config private and never commit it.
+- This academic project has not received a production deployment/security review and should not be described as production-ready.

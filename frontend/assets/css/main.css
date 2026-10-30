@@ -1,0 +1,68 @@
+:root {
+  --color-white: #ffffff;
+  --color-black: #111111;
+  --color-gray: #8a8a8a;
+  --color-page-background: #111111;
+  --color-surface: #1c1c1c;
+  --color-text-primary: #f5f5f5;
+  --color-text-secondary: #a3a3a3;
+  --color-border: #3a3a3a;
+  --color-primary-action: #f2f2f2;
+  --color-primary-hover: #d6d6d6;
+  --color-neutral-hover: #2a2a2a;
+  --color-edit: #d6d6d6;
+  --color-edit-hover: #bdbdbd;
+  --color-delete: #dc2626;
+  --color-delete-hover: #b91c1c;
+  --color-error-text: #f87171;
+  --color-success: #c5c5c5;
+  --color-warning: #a3a3a3;
+  --color-info: #c5c5c5;
+  --color-disabled: #505050;
+  --color-disabled-surface: #292929;
+  --color-disabled-text: #888888;
+  --color-dialog-backdrop: rgb(0 0 0 / 72%);
+  --font-family: Inter, "Segoe UI", Arial, sans-serif;
+  --border-width: 1px;
+  --border-style: solid;
+  --border-radius: 10px;
+  --shadow-card: 0 1px 3px rgb(0 0 0 / 25%);
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-8: 32px;
+  --page-padding: 32px;
+  --section-gap: 24px;
+  --component-gap: 16px;
+  --form-field-gap: 16px;
+  --table-cell-padding-y: 14px;
+  --table-cell-padding-x: 16px;
+}
+
+* { box-sizing: border-box; }
+html { min-width: 320px; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  background: var(--color-page-background);
+  color: var(--color-text-primary);
+  font: 15px/1.55 var(--font-family);
+}
+button, input, select, textarea { font: inherit; }
+button, a { -webkit-tap-highlight-color: transparent; }
+a { color: inherit; }
+:focus-visible { outline: 3px solid #bdbdbd; outline-offset: 2px; }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

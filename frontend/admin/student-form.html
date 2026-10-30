@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Add student | Student Records</title>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/forms.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="main-nav" aria-label="Main navigation">
+      <p class="brand"><a href="dashboard.html">Student Records</a></p>
+      <nav>
+        <ul class="nav-list">
+          <li><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+          <li><a class="nav-link" href="students.html">Students</a></li>
+          <li><a class="nav-link" href="student-form.html" aria-current="page">Add Student</a></li>
+          <li><a class="nav-link" href="courses.html">Courses</a></li>
+          <li><a class="nav-link" href="reports.html">Reports</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar-footer">
+        <button class="button button-secondary" type="button" data-logout>Log out</button>
+      </div>
+    </aside>
+    <div class="workspace">
+      <header class="topbar">
+        <button class="button button-secondary menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button>
+        <h1 id="page-title">Add student</h1>
+        <span class="topbar-user">Administrator</span>
+      </header>
+      <main class="main-content">
+        <div class="page-heading">
+          <div>
+            <h2 id="form-heading">New student record</h2>
+            <p>Fields marked with * are required.</p>
+          </div>
+          <a class="button button-secondary" href="students.html">Back to students</a>
+        </div>
+        <div id="form-message" class="form-message" role="status" aria-live="polite" hidden></div>
+        <section class="panel">
+          <div class="panel-body">
+            <form id="student-page-form" novalidate>
+              <div class="form-grid">
+                <div class="field">
+                  <label for="studentNumber">Student number *</label>
+                  <input id="studentNumber" name="studentNumber" required maxlength="30">
+                  <span id="studentNumber-error" class="field-error"></span>
+                </div>
+                <div class="field">
+                  <label for="firstName">First name *</label>
+                  <input id="firstName" name="firstName" required maxlength="60">
+                  <span id="firstName-error" class="field-error"></span>
+                </div>
+                <div class="field">
+                  <label for="middleName">Middle name</label>
+                  <input id="middleName" name="middleName" maxlength="60">
+                  <span id="middleName-error" class="field-error"></span>
+                </div>
+                <div class="field">
+                  <label for="lastName">Last name *</label>
+                  <input id="lastName" name="lastName" required maxlength="60">
+                  <span id="lastName-error" class="field-error"></span>
+                </div>
+                <div class="field">
+                  <label for="gender">Gender *</label>
+                  <select id="gender" name="gender" required>
+                    <option value="">Select gender</option>
+                    <option>Female</option>
+                    <option>Male</option>
+                    <option>Non-binary</option>
+                    <option>Prefer not to say</option>
+                  </select>
+                  <span id="gender-error" class="field-error"></span>
+                </div>
+                <div class="field">
+                  <label for="dateOfBirth">Date of birth *</label>
+                  <input id="dateOfBirth" name="dateOfBirth" type="date" required>
+                  <span id="dateOfBirth-error" class="field-error"></span>
+                </div>
+                <div class="field">
+                  <label for="email">Email</label>
+                  <input id="email" name="email" type="email" maxlength="120">
+                  <span id="email-error" class="field-error"></span>
+                </div>
+                <div class="field">
+                  <label for="contactNumber">Contact number</label>
+                  <input id="contactNumber" name="contactNumber" maxlength="30">
+                  <span id="contactNumber-error" class="field-error"></span>
+                </div>
+                <div class="field field-full">
+                  <label for="address">Address *</label>
+                  <textarea id="address" name="address" required maxlength="240"></textarea>
+                  <span id="address-error" class="field-error"></span>
+                </div>
+                <div class="field">
+                  <label for="courseId">Course *</label>
+                  <select id="courseId" name="courseId" required>
+                    <option value="">Select course</option>
+                  </select>
+                  <span id="courseId-error" class="field-error"></span>
+                </div>
+                <div class="field">
+                  <label for="yearLevel">Year level *</label>
+                  <select id="yearLevel" name="yearLevel" required>
+                    <option value="">Select year</option>
+                    <option value="1">Year 1</option>
+                    <option value="2">Year 2</option>
+                    <option value="3">Year 3</option>
+                    <option value="4">Year 4</option>
+                  </select>
+                  <span id="yearLevel-error" class="field-error"></span>
+                </div>
+              </div>
+              <div class="form-actions">
+                <button class="button" type="submit">Save student</button>
+                <a class="button button-secondary" href="students.html">Cancel</a>
+              </div>
+            </form>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script type="module" src="../assets/js/main.js"></script>
+  <script type="module" src="../assets/js/student-form.js"></script>
+</body>
+</html>

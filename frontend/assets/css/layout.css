@@ -1,0 +1,67 @@
+.app-shell { min-height: 100vh; }
+.sidebar {
+  position: fixed;
+  inset: 0 auto 0 0;
+  z-index: 20;
+  display: flex;
+  width: 248px;
+  flex-direction: column;
+  padding: 28px 18px 20px;
+  border-right: 0;
+  background: #191919;
+  color: #eeeeee;
+  transition: transform 160ms ease;
+}
+.brand { margin: 0 0 36px; padding: 0 10px; font-size: 17px; font-weight: 700; letter-spacing: .01em; }
+.brand a { text-decoration: none; }
+.nav-list { display: grid; gap: var(--space-2); margin: 0; padding: 0; list-style: none; }
+.nav-link {
+  display: block;
+  padding: 10px 12px;
+  border-radius: 8px;
+  color: #bdbdbd;
+  text-decoration: none;
+  transition: background 140ms ease, color 140ms ease;
+}
+.nav-link:hover, .nav-link[aria-current="page"] { background: rgb(255 255 255 / 10%); color: var(--color-white); }
+.nav-link[aria-current="page"] { font-weight: 700; }
+.sidebar-footer { margin-top: auto; padding: 18px 8px 0; border-top: 1px solid rgb(255 255 255 / 14%); }
+.sidebar-footer .button-secondary { width: 100%; border-color: rgb(255 255 255 / 22%); background: transparent; color: #eeeeee; }
+.sidebar-footer .button-secondary:hover { background: rgb(255 255 255 / 10%); }
+.workspace { min-height: 100vh; margin-left: 248px; }
+.topbar {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  min-height: 72px;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-4);
+  padding: 14px var(--page-padding);
+  border-bottom: 1px solid var(--color-border);
+  background: rgb(28 28 28 / 94%);
+  backdrop-filter: blur(12px);
+}
+.topbar h1 { margin: 0; font-size: 19px; line-height: 1.3; font-weight: 650; }
+.topbar-user { color: var(--color-text-secondary); font-size: 14px; }
+.menu-toggle { display: none; }
+.main-content { max-width: 1480px; margin: 0 auto; padding: var(--page-padding); }
+.page-heading {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: var(--space-4);
+  margin-bottom: var(--section-gap);
+}
+.page-heading h2 { margin: 0; font-size: 26px; line-height: 1.3; letter-spacing: -.025em; }
+.page-heading p { margin: var(--space-2) 0 0; color: var(--color-text-secondary); }
+.panel { border: 1px solid var(--color-border); border-radius: 12px; background: var(--color-surface); box-shadow: var(--shadow-card); }
+.panel-header { display: flex; justify-content: space-between; align-items: center; gap: var(--space-4); padding: 18px 20px; border-bottom: 1px solid var(--color-border); }
+.panel-header h3 { margin: 0; font-size: 16px; font-weight: 650; }
+.panel-body { padding: var(--space-4); }
+.section-stack { display: grid; gap: var(--section-gap); }
+.login-page { display: grid; min-height: 100vh; place-items: center; padding: var(--page-padding); }
+.login-panel { width: min(100%, 440px); padding: 36px; }
+.login-panel h1 { margin: 0 0 var(--space-2); font-size: 25px; }
+.login-panel > p { margin: 0 0 var(--space-6); color: var(--color-text-secondary); }

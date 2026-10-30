@@ -2,15 +2,15 @@
 
 ## Visual foundations
 
-The global tokens are defined in `assets/css/main.css` and imported by each page.
+The global tokens are defined in `frontend/assets/css/main.css` and imported by each page.
 
-- Primary palette: white (`--color-white`), soft black (`--color-black`), and medium gray (`--color-gray`).
+- Primary palette: black page and navigation backgrounds, charcoal surfaces, white primary actions, and gray borders and text.
 - Interface text, borders, and surfaces use the shared color variables rather than page-specific colors.
-- Semantic colors are reserved for actions and feedback: blue for edit/information, red for deletion/errors, green for success, and amber for warnings.
-- Typography uses Arial, Helvetica, sans-serif throughout.
+- The default appearance is dark mode, using only white, black, and gray across actions and feedback.
+- Typography uses the system UI font stack for a clean, native feel.
 - Spacing tokens range from `--space-1` through `--space-8`; page, section, component, form, and table spacing use their named variables.
-- General surfaces, tables, form controls, and secondary buttons use a solid 1px medium-gray border and a 4px radius.
-- Shadows are disabled. Focus indicators are visible and use the shared information color.
+- General surfaces and controls use subtle cool-gray borders and rounded corners. Cards use a restrained shadow for separation.
+- Focus indicators remain visible and use the shared gray palette.
 
 ## Shared components
 
@@ -21,10 +21,10 @@ The global tokens are defined in `assets/css/main.css` and imported by each page
 - `dashboard.css`: dashboard-specific grid and enrollment indicators
 - `responsive.css`: tablet/mobile layout and print rules
 
-Buttons have consistent sizing and labels. Primary actions use soft black; secondary actions are white with a gray border; edit and informational actions use blue; destructive actions use red and require confirmation. Focus, hover, active, and disabled states are supplied.
+Buttons have consistent sizing and labels. Primary actions use white with dark text; secondary actions use charcoal with a gray border. Focus, hover, active, and disabled states are supplied.
 
 ## Layout and accessibility
 
-Admin pages share a labeled navigation sidebar, page-title header, administrator demonstration label, and aligned content area. On narrow screens the sidebar is toggled by a keyboard-accessible button. Tables are wrapped for horizontal scrolling. Forms use explicit labels, validation text, and `aria-invalid`; status regions announce feedback. Reports have a print stylesheet that removes navigation and controls.
+Admin pages share a dark navigation sidebar, page-title header, administrator label, and aligned content area. On narrow screens the sidebar is toggled by a keyboard-accessible button. Tables are wrapped for horizontal scrolling. Forms use explicit labels, validation text, and `aria-invalid`; status regions announce feedback. Reports have a print stylesheet that removes navigation and controls.
 
 The interface is intentionally restrained and has no external assets, icon package, or framework.

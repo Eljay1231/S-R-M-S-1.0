@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Courses | Student Records</title>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/forms.css">
+  <link rel="stylesheet" href="../assets/css/tables.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="main-nav" aria-label="Main navigation">
+      <p class="brand"><a href="dashboard.html">Student Records</a></p>
+      <nav>
+        <ul class="nav-list">
+          <li><a class="nav-link" href="dashboard.html">Dashboard</a></li>
+          <li><a class="nav-link" href="students.html">Students</a></li>
+          <li><a class="nav-link" href="student-form.html">Add Student</a></li>
+          <li><a class="nav-link" href="courses.html" aria-current="page">Courses</a></li>
+          <li><a class="nav-link" href="reports.html">Reports</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar-footer">
+        <button class="button button-secondary" type="button" data-logout>Log out</button>
+      </div>
+    </aside>
+    <div class="workspace">
+      <header class="topbar">
+        <button class="button button-secondary menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button>
+        <h1>Courses</h1>
+        <span class="topbar-user">Administrator</span>
+      </header>
+      <main class="main-content">
+        <div class="page-heading">
+          <div>
+            <h2>Course management</h2>
+            <p>Manage the courses available in the system.</p>
+          </div>
+          <button id="add-course" class="button" type="button">Add course</button>
+        </div>
+        <div class="notice" role="note">Deactivated courses remain linked to existing students and cannot be selected for new student records.</div>
+        <div id="course-feedback" class="form-message" role="status" aria-live="polite" hidden></div>
+        <section class="panel">
+          <div class="filter-bar">
+            <div class="field">
+              <label for="course-search">Search courses</label>
+              <input id="course-search" type="search" autocomplete="off">
+            </div>
+            <p id="course-result-count" class="result-count" aria-live="polite"></p>
+          </div>
+          <div id="course-table"></div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <dialog id="course-dialog" aria-labelledby="course-dialog-title">
+    <form id="course-form" novalidate>
+      <div class="dialog-header">
+        <h2 id="course-dialog-title">Add course</h2>
+        <button class="button button-secondary button-small" type="button" data-close-course-dialog>Close</button>
+      </div>
+      <div class="dialog-body">
+        <div id="course-form-message" class="form-message" role="status" aria-live="polite" hidden></div>
+        <div class="section-stack">
+          <div class="field">
+            <label for="courseCode">Course code *</label>
+            <input id="courseCode" name="courseCode" required maxlength="20">
+            <span id="courseCode-error" class="field-error"></span>
+          </div>
+          <div class="field">
+            <label for="courseName">Course name *</label>
+            <input id="courseName" name="courseName" required maxlength="120">
+            <span id="courseName-error" class="field-error"></span>
+          </div>
+          <div class="field">
+            <label for="description">Description</label>
+            <textarea id="description" name="description" maxlength="240"></textarea>
+            <span id="description-error" class="field-error"></span>
+          </div>
+        </div>
+      </div>
+      <div class="dialog-footer">
+        <button class="button button-secondary" type="button" data-close-course-dialog>Cancel</button>
+        <button class="button" type="submit">Save course</button>
+      </div>
+    </form>
+  </dialog>
+  <dialog id="deactivate-dialog" aria-labelledby="deactivate-title">
+    <div class="dialog-header"><h2 id="deactivate-title">Deactivate course?</h2></div>
+    <div class="dialog-body">
+      <p id="deactivate-description"></p>
+      <p>Current students will remain assigned. New students cannot select this course.</p>
+    </div>
+    <div class="dialog-footer">
+      <button id="cancel-deactivate" class="button button-secondary" type="button">Cancel</button>
+      <button id="confirm-deactivate" class="button button-secondary" type="button">Deactivate course</button>
+    </div>
+  </dialog>
+  <script type="module" src="../assets/js/main.js"></script>
+  <script type="module" src="../assets/js/courses.js"></script>
+</body>
+</html>

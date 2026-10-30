@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard | Student Records</title>
+  <link rel="stylesheet" href="../assets/css/main.css">
+  <link rel="stylesheet" href="../assets/css/layout.css">
+  <link rel="stylesheet" href="../assets/css/components.css">
+  <link rel="stylesheet" href="../assets/css/tables.css">
+  <link rel="stylesheet" href="../assets/css/dashboard.css">
+  <link rel="stylesheet" href="../assets/css/responsive.css">
+</head>
+<body>
+  <div class="app-shell">
+    <aside class="sidebar" id="main-nav" aria-label="Main navigation">
+      <p class="brand"><a href="dashboard.html">Student Records</a></p>
+      <nav>
+        <ul class="nav-list">
+        <li><a class="nav-link" href="dashboard.html" aria-current="page">Dashboard</a></li>
+        <li><a class="nav-link" href="students.html">Students</a></li>
+        <li><a class="nav-link" href="student-form.html">Add Student</a></li>
+        <li><a class="nav-link" href="courses.html">Courses</a></li>
+        <li><a class="nav-link" href="reports.html">Reports</a></li>
+        </ul>
+      </nav>
+      <div class="sidebar-footer">
+        <button class="button button-secondary" type="button" data-logout>Log out</button>
+      </div>
+    </aside>
+    <div class="workspace">
+      <header class="topbar">
+        <button class="button button-secondary menu-toggle" type="button" aria-expanded="false" aria-controls="main-nav">Menu</button>
+        <h1>Dashboard</h1>
+        <span class="topbar-user">Administrator</span>
+      </header>
+      <main class="main-content section-stack">
+        <div class="page-heading">
+          <div>
+            <h2>Overview</h2>
+            <p>Summary of student records.</p>
+          </div>
+        </div>
+        <section class="metric-grid" aria-label="System statistics">
+          <article class="panel metric">
+            <p class="metric-label">Total students</p>
+            <p id="stat-students" class="metric-value">—</p>
+          </article>
+          <article class="panel metric">
+            <p class="metric-label">Total courses</p>
+            <p id="stat-courses" class="metric-value">—</p>
+          </article>
+          <article class="panel metric">
+            <p class="metric-label">Active courses</p>
+            <p id="stat-active" class="metric-value">—</p>
+          </article>
+          <article class="panel metric">
+            <p class="metric-label">Without an assigned course</p>
+            <p id="stat-unassigned" class="metric-value">—</p>
+          </article>
+        </section>
+        <section class="dashboard-grid">
+          <article class="panel dashboard-section">
+            <div class="panel-header">
+              <h3>Recent registrations</h3>
+              <a class="button button-secondary button-small" href="students.html">View all students</a>
+            </div>
+            <div id="recent-students"></div>
+          </article>
+          <article class="panel dashboard-section">
+            <div class="panel-header">
+              <h3>Course enrollment</h3>
+            </div>
+            <div id="course-enrollment"></div>
+          </article>
+        </section>
+        <section class="panel">
+          <div class="panel-header">
+            <h3>Quick actions</h3>
+          </div>
+          <div class="panel-body quick-actions">
+            <a class="button" href="student-form.html">Add student</a>
+            <a class="button button-secondary" href="students.html">View students</a>
+            <a class="button button-secondary" href="courses.html">Manage courses</a>
+            <a class="button button-secondary" href="reports.html">View reports</a>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+  <script type="module" src="../assets/js/main.js"></script>
+  <script type="module" src="../assets/js/dashboard.js"></script>
+</body>
+</html>
